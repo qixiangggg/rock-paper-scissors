@@ -21,3 +21,16 @@ function getComputerChoice(){
     return ret;
 }
 console.log(getComputerChoice());
+
+//write function body getHumanChoice
+function getHumanChoice(){
+    // initialize the variable for storing the user input
+    let humanChoice;
+
+    // set the user input to the variable
+    humanChoice = prompt("Please select Rock, Paper or Scissors");
+
+    //return the choice selected by human player
+    return humanChoice;
+}
+console.log(getHumanChoice());
