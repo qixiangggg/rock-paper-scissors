@@ -33,28 +33,45 @@ function getHumanChoice(){
     return humanChoice;
 }
 
-// create two new variables of players score variables and initialize the values with 0
-let humanScore = 0;
-let computerScore = 0;
 
-//write function body playRound with two parameters
-function playRound(humanChoice, computerChoice){
-    // set the value from getHumanChoice first letter uppercase and the rest lowercase
-    humanChoice = humanChoice.toLowerCase();
-    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+//Write function body playGame
+// call playRound function 5 times
+function playGame(){
+    // create two new variables of players score variables and initialize the values with 0
+    let humanScore = 0;
+    let computerScore = 0;
+    //write function body playRound with two parameters
+    function playRound(humanChoice, computerChoice){
+        // set the value from getHumanChoice first letter uppercase and the rest lowercase
+        humanChoice = humanChoice.toLowerCase();
+        humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
 
-    if ((humanChoice === "Rock" && computerChoice === "Scissors") || 
-        (humanChoice === "Paper" && computerChoice === "Rock") ||
-        (humanChoice === "Scissors" && computerChoice === "Paper")){
-            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-            humanChoice++;
+        if ((humanChoice === "Rock" && computerChoice === "Scissors") || 
+            (humanChoice === "Paper" && computerChoice === "Rock") ||
+            (humanChoice === "Scissors" && computerChoice === "Paper")){
+                console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+                humanScore++;
+            }
+        else if (humanChoice === computerChoice){
+            console.log("Draw!");
         }
-    else if (humanChoice === computerChoice){
-        console.log("Draw!");
+        else{
+            console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+            computerScore++;
+        }
+    }
+    for (let i = 0; i <= 5; i++){
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+
+    if (humanScore > computerScore){
+        console.log(`You are the final winner! Your score is ${humanScore}`);
+    }
+    else if(humanScore === computerScore){
+        console.log(`Draw! Your score is ${humanScore}`);
     }
     else{
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        console.log(`Computer are the final winner! Your score is ${humanScore}`);
     }
 }
-
-playRound(getHumanChoice(),getComputerChoice());
+playGame();
