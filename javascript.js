@@ -34,3 +34,7 @@ function getHumanChoice(){
     return humanChoice;
 }
 console.log(getHumanChoice());
+
+// create two new variables of players score variables and initialize the values with 0
+let humanScore = 0;
+let computerScore = 0;
