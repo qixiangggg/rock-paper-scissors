@@ -42,9 +42,7 @@ function playRound(humanChoice, computerChoice){
     // set the value from getHumanChoice first letter uppercase and the rest lowercase
     humanChoice = humanChoice.toLowerCase();
     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-    // initialize score for players
-    let humanScore = 0;
-    let computerScore = 0;
+
     if ((humanChoice === "Rock" && computerChoice === "Scissors") || 
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice === "Paper")){
