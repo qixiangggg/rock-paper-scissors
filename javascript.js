@@ -7,20 +7,19 @@ function getComputerChoice(){
     switch(randomNumber){
         // if random number equal 2, then it is rock
         case 2:
-            ret = "rock";
+            ret = "Rock";
             break;
         // if random number equal 1, then it is paper
         case 1:
-            ret = "paper";
+            ret = "Paper";
             break;
         // if random number equal 0, then it is scissors
         case 0:
-            ret = "scissors"
+            ret = "Scissors"
             break;
     }
     return ret;
 }
-console.log(getComputerChoice());
 
 //write function body getHumanChoice
 function getHumanChoice(){
@@ -33,8 +32,31 @@ function getHumanChoice(){
     //return the choice selected by human player
     return humanChoice;
 }
-console.log(getHumanChoice());
 
 // create two new variables of players score variables and initialize the values with 0
 let humanScore = 0;
 let computerScore = 0;
+
+//write function body playRound with two parameters
+function playRound(humanChoice, computerChoice){
+    // set the value from getHumanChoice first letter uppercase and the rest lowercase
+    humanChoice = humanChoice.toLowerCase();
+    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+    // initialize score for players
+    let humanScore = 0;
+    let computerScore = 0;
+    if ((humanChoice === "Rock" && computerChoice === "Scissors") || 
+        (humanChoice === "Paper" && computerChoice === "Rock") ||
+        (humanChoice === "Scissors" && computerChoice === "Paper")){
+            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            humanChoice++;
+        }
+    else if (humanChoice === computerChoice){
+        console.log("Draw!");
+    }
+    else{
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+    }
+}
+
+playRound(getHumanChoice(),getComputerChoice());
